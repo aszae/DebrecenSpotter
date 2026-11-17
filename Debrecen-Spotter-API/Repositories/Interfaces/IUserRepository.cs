@@ -12,8 +12,6 @@ namespace DebrecenSpotter.Api.Repositories.Interfaces
         Task<User?> FindUserByNameAsync(string name);
         Task<User?> GetUserByEmailAsync(string email);
         Task<IEnumerable<User>> GetAllUsersAsync();
-        Task<IEnumerable<Sight>> GetVisitedSightsByUserIdAsync(int userId);
-        Task<IEnumerable<Sight>> GetLikedSightsByUserIdAsync(int userId);
         Task<IEnumerable<User>> GetTopUsersByReceivedLikesAsync(int count);
     }
 }

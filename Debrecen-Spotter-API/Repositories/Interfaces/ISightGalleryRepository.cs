@@ -6,8 +6,9 @@ namespace DebrecenSpotter.Api.Repositories.Interfaces
     {
         Task CreateSightGalleryAsync(SightGallery sightGallery);
         Task DeleteSightGalleryAsync(SightGallery sightGallery);
-        Task DeleteSightGalleryByIdAsync(int Id);
+        Task DeleteSightGalleryByIdAsync(int id);
         Task UpdateSightGalleryAsync(SightGallery sightGallery);
+        Task<SightGallery?> GetSightGalleryByIdAsync(int id);
         Task<IEnumerable<SightGallery>> GetAllPicturesBySightIdAsync(int sightId);
         Task<IEnumerable<SightGallery>> GetLatestPicturesAsync(int count);
     }
