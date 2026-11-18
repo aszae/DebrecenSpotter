@@ -58,7 +58,7 @@ namespace DebrecenSpotter.Api.Data
                 );
             modelBuilder.Entity<User>()
                 .HasMany(u => u.LikedSpottings)
-                .WithMany(s => s.UserLikes)
+                .WithMany(s => s.LikedByUsers)
                 .UsingEntity<SpottingLike>(
                     j => j.HasOne(sl => sl.Spotting).WithMany(s => s.SpottingLikes).HasForeignKey(sl => sl.SpottingId),
                     j => j.HasOne(sl => sl.User).WithMany().HasForeignKey(sl => sl.UserId),

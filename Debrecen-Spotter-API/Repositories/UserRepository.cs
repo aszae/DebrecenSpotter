@@ -34,29 +34,36 @@ namespace DebrecenSpotter.Api.Repositories
                 .ExecuteDeleteAsync();
         }
 
-        public Task<User?> FindUserByIdAsync(int id)
+        public async Task<User?> FindUserByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var user = await _dbContext.Users.FindAsync(id);
+            return user;
         }
 
-        public Task<User?> FindUserByNameAsync(string name)
+        public async Task<User?> FindUserByNameAsync(string name)
         {
-            throw new NotImplementedException();
+            return await _dbContext.Users
+                .FirstOrDefaultAsync(u => u.UserName == name);
         }
 
-        public Task<IEnumerable<User>> GetAllUsersAsync()
+        public async Task<IEnumerable<User>> GetAllUsersAsync()
         {
-            throw new NotImplementedException();
+            return await _dbContext.Users.ToListAsync();
+                
         }
 
-        public Task<IEnumerable<User>> GetTopUsersByReceivedLikesAsync(int count)
+        public async Task<IEnumerable<User>> GetTopUsersByReceivedLikesAsync(int count)
         {
-            throw new NotImplementedException();
+            return await _dbContext.Users
+                .OrderByDescending(u => u.Spottings.Sum(s => s.SpottingLikes.Count()))
+                .Take(count)
+                .ToListAsync();
         }
 
-        public Task<User?> GetUserByEmailAsync(string email)
+        public async Task<User?> GetUserByEmailAsync(string email)
         {
-            throw new NotImplementedException();
+            return await _dbContext.Users
+                .FirstOrDefaultAsync(u => u.Email == email);
         }
 
         public async Task UpdateUserAsync(User user)

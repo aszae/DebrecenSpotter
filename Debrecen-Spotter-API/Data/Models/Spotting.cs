@@ -9,8 +9,7 @@ namespace DebrecenSpotter.Api.Data.Models{
         public string ImagePath {get; set;}
         public string Description {get; set;}
         public DateTime TimeOfCreation {get; set;}
-
-        public ICollection<User> UserLikes {get; set;} = new List<User>();
+        public ICollection<User> LikedByUsers {get; set;} = new List<User>();
         public ICollection<SpottingLike> SpottingLikes {get; set;} = new List<SpottingLike>();
     }
 }

@@ -8,7 +8,6 @@ namespace DebrecenSpotter.Api.Data.Models
         public string Email {get; set;}
         public DateOnly BirthDate {get; set;}
         public UserRole Role {get; set;} = UserRole.StandardUser;
-
         public ICollection<Sight> VisitedSights {get; set;} = new List<Sight>();
         public ICollection<Sight> LikedSights {get; set;} = new List<Sight>();
         public ICollection<Spotting> Spottings {get; set;} = new List<Spotting>();

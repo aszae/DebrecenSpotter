@@ -11,5 +11,6 @@ namespace DebrecenSpotter.Api.Repositories.Interfaces
         Task<SightGallery?> GetSightGalleryByIdAsync(int id);
         Task<IEnumerable<SightGallery>> GetAllPicturesBySightIdAsync(int sightId);
         Task<IEnumerable<SightGallery>> GetLatestPicturesAsync(int count);
+        Task<IEnumerable<SightGallery>> GetLatestPicturesBySightIdAsync(int count, int id);
     }
 }

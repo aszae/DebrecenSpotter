@@ -8,5 +8,6 @@ namespace DebrecenSpotter.Api.Data.Models{
         public User User {get; set;}
         public string ImagePath {get; set;}
         public string Description {get; set;}
+        public DateTime TimeOfCreation {get; set;}
     }
 }
