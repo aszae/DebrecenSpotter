@@ -1,4 +1,6 @@
 using DebrecenSpotter.Api.Data;
+using DebrecenSpotter.Api.Repositories;
+using DebrecenSpotter.Api.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace DebrecenSpotter.Api
@@ -14,6 +16,10 @@ namespace DebrecenSpotter.Api
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite(connectionString));
+            builder.Services.AddScoped<ISightGalleryRepository, SightGalleryRepository>();
+            builder.Services.AddScoped<ISightRepository, SightRepository>();
+            builder.Services.AddScoped<ISpottingRepository, SpottingRepository>();
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
             var app = builder.Build();
 
             app.UseHttpsRedirection();
